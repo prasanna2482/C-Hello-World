@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35122.118
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "csharp-helloworld-console-app", "csharp-helloworld-console-app.csproj", "{054D0146-8457-46B6-B153-0F61044718F5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{054D0146-8457-46B6-B153-0F61044718F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{054D0146-8457-46B6-B153-0F61044718F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{054D0146-8457-46B6-B153-0F61044718F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{054D0146-8457-46B6-B153-0F61044718F5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DFE43BD3-6ECE-4305-A8D2-E2B49D5EB1CD}
+	EndGlobalSection
+EndGlobal
