@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
+    <Version>1.0.1</Version>
     <TargetFramework>net8.0</TargetFramework>
     <RootNamespace>csharp_helloworld_console_app</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
