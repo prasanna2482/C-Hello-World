@@ -3,14 +3,14 @@ name: Build and Publish .NET Application to Azure Storage
 on:
   workflow_dispatch:
     Inputs:
-       environment:
+      environment:
         description: 'Choose an environment'
         required: true
         type: choice
         options:
-          - 'prod'
-          - 'test'
-          - 'QA'
+        - 'prod'
+        - 'test'
+        - 'QA'
 jobs:
   build:
     runs-on: ubuntu-latest  # Specify the OS runner
