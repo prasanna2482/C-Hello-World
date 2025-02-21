@@ -50,5 +50,5 @@ jobs:
         connection-string: ${{ secrets.AZURE_STORAGE_CONNECTION_STRING }}  # Store your Azure storage connection string as a secret
         container-name: 'teststorpras'  # Specify your Azure container name
         file: 'publish.zip'
-        blob-name: 'testdotnet-'$INPUT_Env'.zip'  # This can be a dynamic value like $(Build.BuildId).zip
+        blob-name: 'testdotnet-${{ inputs.Env }}.zip'  # This can be a dynamic value like $(Build.BuildId).zip
 
