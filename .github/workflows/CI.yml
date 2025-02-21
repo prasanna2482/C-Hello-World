@@ -44,11 +44,11 @@ jobs:
         zip -r publish.zip ./publish
 
     # Step 7: Upload the zip file to Azure Storage
-    - name: Upload the zip file to Azure Storage
-      uses: azure/storage-blob-upload-action@v1
-      with:
-        connection-string: ${{ secrets.AZURE_STORAGE_CONNECTION_STRING }}  # Store your Azure storage connection string as a secret
-        container-name: 'teststorpras'  # Specify your Azure container name
-        file: 'publish.zip'
-        blob-name: 'testdotnet-${{ inputs.Env }}.zip'  # This can be a dynamic value like $(Build.BuildId).zip
+    #- name: Upload the zip file to Azure Storage
+     # uses: azure/storage-blob-upload-action@v1
+     # with:
+     #   connection-string: ${{ secrets.AZURE_STORAGE_CONNECTION_STRING }}  # Store your Azure storage connection string as a secret
+     #   container-name: 'teststorpras'  # Specify your Azure container name
+      #  file: 'publish.zip'
+      #  blob-name: 'testdotnet-${{ inputs.Env }}.zip'  # This can be a dynamic value like $(Build.BuildId).zip
 
