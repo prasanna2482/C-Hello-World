@@ -3,7 +3,7 @@ name: Build and Publish .NET Application to Azure Storage
 on:
   workflow_dispatch:
     inputs:
-      environment:
+      Env:
         description: 'Choose an environment'
         required: true
         type: choice
