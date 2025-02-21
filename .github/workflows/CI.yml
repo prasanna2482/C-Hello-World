@@ -1,4 +1,4 @@
-name: Build and Publish .NET Application to Azure Storage
+name: GHA Test
 
 on:
   workflow_dispatch:
