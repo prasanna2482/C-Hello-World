@@ -1,5 +1,4 @@
 name: GHA Test
-
 on:
   workflow_dispatch:
     inputs:
@@ -11,43 +10,44 @@ on:
           - prod
           - test
           - QA
-
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+    # Step 1: Checkout the code
       - name: Checkout code
         uses: actions/checkout@v2
-
       - name: Echo input parameter
-        run: echo "The input parameter value is: ${{ github.event.inputs.Env }}"
-
+        run: |
+          echo "The input parameter value is: ${{ github.event.inputs.Env }}"
+    # Step 2: Set up .NET
       - name: Set up .NET SDK
         uses: actions/setup-dotnet@v3
         with:
           dotnet-version: '8.0'
-
+      # Step 3: Restore dependencies
       - name: Restore dependencies
         run: dotnet restore
-
+      # Step 4: Build the application
       - name: Build the project
         run: dotnet build --configuration Release
-
+      # Step 5: Publish the application
       - name: Publish the application
         run: dotnet publish --configuration Release --output ./publish
-
+      # Step 6: Zip the published output
       - name: Zip the publish folder
-        run: zip -r publish.zip ./publish
-
+        run: |
+          zip -r publish.zip ./publish
+      # Step 7: Upload the zip file to Azure Storage
       - name: Upload the zip file to Azure Storage
         uses: azure/cli@v1
         with:
-          azcliversion: 2.59.0
-          inlineScript: |
-            az storage blob upload \
-              --account-name teststorpras \
-              --container-name teststorpras \
-              --name testdotnet-${{ github.event.inputs.Env }}.zip \
-              --file publish.zip \
-              --auth-mode key \
-              --account-key ${{ secrets.AZURE_STORAGE_ACCOUNT_KEY }}
+         azcliversion: 2.59.0  # You can use latest or specify a version
+         inlineScript: |
+          az storage blob upload \
+            --account-name teststorpras \
+            --container-name teststorpras \
+            --name testdotnet-${{ github.event.inputs.Env }}.zip \
+            --file publish.zip \
+            --auth-mode key \
+            --account-key ${{ secrets.AZURE_STORAGE_ACCOUNT_KEY }} 
