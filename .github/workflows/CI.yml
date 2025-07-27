@@ -39,10 +39,15 @@ jobs:
         run: |
           zip -r publish.zip ./publish
       # Step 7: Upload the zip file to Azure Storage
-      - name: Upload the zip file to Azure Storage
-        uses: azure/storage-blob-upload-action@v1
-        with: 
-          connection-string: '${{ secrets.AZURE_STORAGE_CONNECTION_STRING }}'
-          container-name: teststorpras
-          file: publish.zip
-          blob-name: 'testdotnet-${{ inputs.Env }}.zip'
+     - name: Upload the zip file to Azure Storage
+       uses: azure/cli@v1
+       with:
+        azcliversion: 2.59.0  # You can use latest or specify a version
+        inlineScript: |
+          az storage blob upload \
+            --account-name teststorpras \
+            --container-name teststorpras \
+            --name testdotnet-${{ github.event.inputs.Env }}.zip \
+            --file publish.zip \
+            --auth-mode key \
+            --account-key ${{ secrets.AZURE_STORAGE_ACCOUNT_KEY }}
